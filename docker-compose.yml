@@ -16,6 +16,13 @@ app:
   environment:
     - REDIS_URL=redis://cache
     - NODE_ENV=development
+    - KOODISTO_SERVICE_URL=https://virkailija.opintopolku.fi/koodisto-service/rest/json
+    - EPERUSTEET_AMOSAA_URL=https://virkailija.opintopolku.fi/eperusteet-amosaa-service/api/julkinen
+    - FINTO_URL=http://api.finto.fi/rest/v1
+    - KOODISTOT_SUOMI_URL=https://koodistot.suomi.fi/codelist-api/api/v1/coderegistries
+    - ORGANISAATIO_SERVICE_URL=https://virkailija.opintopolku.fi/organisaatio-service/rest
+    - EPERUSTEET_SERVICE_URL=https://virkailija.opintopolku.fi/eperusteet-service/api
+
   command:
     sh -c 'yarn install && yarn build && yarn serve'
   restart: unless-stopped
