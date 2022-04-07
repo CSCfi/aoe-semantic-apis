@@ -1,10 +1,11 @@
-import app from "./app";
+import app from './app';
+import { winstonLogger } from './util';
 
-app.listen(app.get("port"), () => {
-  console.log(
-    "App is running at http://localhost:%d in %s mode",
-    app.get("port"),
-    app.get("env")
+app.listen(app.get('port'), () => {
+  winstonLogger.info(
+    'App is running at http://localhost:%d in %s mode',
+    app.get('port'),
+    app.get('env')
   );
-  console.log("Press CTRL-C to stop");
+  winstonLogger.info('Press CTRL-C to stop');
 });

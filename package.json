@@ -33,6 +33,7 @@
     "request": "^2.88.2",
     "request-promise": "^4.2.6",
     "striptags": "^3.1.1",
+    "winston": "^3.7.2",
     "xml2js": "^0.4.23"
   },
   "devDependencies": {
