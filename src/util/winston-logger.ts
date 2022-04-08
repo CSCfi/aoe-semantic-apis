@@ -8,15 +8,15 @@ const loggingLevels = {
         error: 1,
         warn: 2,
         http: 3,
-        debug: 4
-    }
+        debug: 4,
+    },
 };
 
 // Options for console logging
 const logLevel: string | undefined = process.env.LOG_LEVEL;
 const consoleOptions: ConsoleTransportOptions = {
     level: process.env.NODE_ENV === 'production' ? logLevel || 'error' : logLevel || 'debug',
-    handleExceptions: true
+    handleExceptions: true,
 };
 
 // Configuration for logging format and transports
@@ -25,10 +25,10 @@ export default winston.createLogger({
     format: format.combine(
         format.splat(), // Use also printf format with argument specifiers %d %s %o etc.
         format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss.SSS' }),
-        format.printf((log: Logform.TransformableInfo) => `[${log.level.toUpperCase()}] ${log.timestamp} ${log.message}`)
+        format.printf(
+            (log: Logform.TransformableInfo) => `[${log.level.toUpperCase()}] ${log.timestamp} ${log.message}`,
+        ),
     ),
     levels: loggingLevels.levels,
-    transports: [
-        new (winston.transports.Console)(consoleOptions)
-    ]
+    transports: [new winston.transports.Console(consoleOptions)],
 });

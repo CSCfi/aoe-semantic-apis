@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  aoe-semantic-apis:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    image: aoe-semantic-apis:latest
+    container_name: aoe-semantic-apis
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    env_file: ./.env
+    command: sh -c "yarn serve"
+    networks:
+      - network-semantic-apis
+
+  redis-reference:
+    build:
+      context: ./docker/redis-reference
+      dockerfile: Dockerfile
+    privileged: true
+    command: sh -c "./init.sh"
+    container_name: redis-reference
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    environment:
+      REDIS_REPLICATION_MODE: master
+    networks:
+      - network-redis-reference
+
+networks:
+  network-semantic-apis:
+    driver: bridge
+  network-redis-reference:
+    driver: bridge

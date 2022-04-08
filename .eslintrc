@@ -1,29 +1,35 @@
 {
-  "root": true,
-  "overrides": [
-    {
-      "files": [
-        "*.ts"
-      ],
-      "parserOptions": {
-        "createDefaultProgram": true,
-        "ecmaVersion": 2020,
-        "sourceType": "module",
-        "project": [
-          "./tsconfig.json"
-        ]
-      },
-      "extends": [
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/eslint-recommended"
-      ],
-      "rules": {
-        "@typescript-eslint/no-explicit-any": "warn",
-        "@typescript-eslint/no-namespace": "error",
-        "@typescript-eslint/no-unused-vars": "warn",
-        "@typescript-eslint/no-var-requires": "error"
-      }
-    }
-  ],
-  "parser": "@typescript-eslint/parser"
+    "root": true,
+    "overrides": [
+        {
+            "files": [
+                "*.ts"
+            ],
+            "parserOptions": {
+                "createDefaultProgram": true,
+                "ecmaVersion": 2020,
+                "sourceType": "module",
+                "project": [
+                    "./tsconfig.json"
+                ]
+            },
+            "extends": [
+                "plugin:@typescript-eslint/recommended",
+                "plugin:@typescript-eslint/eslint-recommended",
+                "plugin:prettier/recommended",
+                "prettier"
+            ],
+            "plugins": [],
+            "rules": {
+                "prettier/prettier": [
+                    "error"
+                ],
+                "@typescript-eslint/no-explicit-any": "off",
+                "@typescript-eslint/no-namespace": "error",
+                "@typescript-eslint/no-unused-vars": "warn",
+                "@typescript-eslint/no-var-requires": "off"
+            }
+        }
+    ],
+    "parser": "@typescript-eslint/parser"
 }

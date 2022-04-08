@@ -13,10 +13,9 @@ services:
     environment:
       - NODE_ENV=production
     env_file: /environment/aoe-semantic-apis/.env
-    command: sh -c "yarn serve"
     networks:
-      - network-semantic-apis-demo
+      - network-semantic-apis
 
 networks:
-  network-semantic-apis-demo:
+  network-semantic-apis:
     driver: bridge

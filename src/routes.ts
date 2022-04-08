@@ -1,34 +1,35 @@
-import { Router } from "express";
+import { Router } from 'express';
 
-import { getOrganisaatio, getOrganisaatiot } from "./controllers/organisaatiot";
+import { getOrganisaatio, getOrganisaatiot } from './controllers/organisaatiot';
+import { getKoulutusaste, getKoulutusasteet } from './controllers/koulutusasteet';
+import { getKohderyhma, getKohderyhmat } from './controllers/kohderyhmat';
+import { getKayttokohde, getKayttokohteet } from './controllers/kayttokohteet';
 import {
-  getKoulutusaste,
-  getKoulutusasteet,
-} from "./controllers/koulutusasteet";
-import { getKohderyhma, getKohderyhmat } from "./controllers/kohderyhmat";
-import { getKayttokohde, getKayttokohteet } from "./controllers/kayttokohteet";
-import { getSaavutettavuudenTukitoiminnot, getSaavutettavuudenTukitoiminto } from "./controllers/saavutettavuuden-tukitoiminnot";
-import { getSaavutettavuudenEste, getSaavutettavuudenEsteet } from "./controllers/saavutettavuuden-esteet";
-import { getKielet, getKieli } from "./controllers/kielet";
-import { getAsiasana, getAsiasanat } from "./controllers/asiasanat";
-import { getTieteenalat } from "./controllers/tieteenalat";
-import { getOppimateriaalityypit, getOppimateriaalityyppi } from "./controllers/oppimateriaalityypit";
+    getSaavutettavuudenTukitoiminnot,
+    getSaavutettavuudenTukitoiminto,
+} from './controllers/saavutettavuuden-tukitoiminnot';
+import { getSaavutettavuudenEste, getSaavutettavuudenEsteet } from './controllers/saavutettavuuden-esteet';
+import { getKielet, getKieli } from './controllers/kielet';
+import { getAsiasana, getAsiasanat } from './controllers/asiasanat';
+import { getTieteenalat } from './controllers/tieteenalat';
+import { getOppimateriaalityypit, getOppimateriaalityyppi } from './controllers/oppimateriaalityypit';
 import {
-  getPerusopetuksenOppiaineet,
-  getPerusopetuksenSisaltoalueet,
-  getPerusopetuksenTavoitteet,
-} from "./controllers/perusopetus";
-import { getLisenssi, getLisenssit } from "./controllers/lisenssit";
-import { getLukionkurssi, getLukionkurssit } from "./controllers/lukionkurssit";
-import { getLukionModuulit, getLukionOppiaineet, getLukionSisallot, getLukionTavoitteet } from "./controllers/lukio";
+    getPerusopetuksenOppiaineet,
+    getPerusopetuksenSisaltoalueet,
+    getPerusopetuksenTavoitteet,
+} from './controllers/perusopetus';
+import { getLisenssi, getLisenssit } from './controllers/lisenssit';
+import { getLukionkurssi, getLukionkurssit } from './controllers/lukionkurssit';
+import { getLukionModuulit, getLukionOppiaineet, getLukionSisallot, getLukionTavoitteet } from './controllers/lukio';
 import {
-  getAmmattikoulunTutkinnonOsat,
-  getAmmattikoulunPerustutkinnot,
-  getAmmattikoulunVaatimukset,
-  getAmmattikoulunAmmattitutkinnot, getAmmattikoulunErikoisammattitutkinnot,
-} from "./controllers/ammattikoulu";
-import { getOppiaineetTieteenalatTutkinnot } from "./controllers/filters";
-import { getLukionVanhatKurssit, getLukionVanhatOppiaineet } from "./controllers/vanha-lukio";
+    getAmmattikoulunTutkinnonOsat,
+    getAmmattikoulunPerustutkinnot,
+    getAmmattikoulunVaatimukset,
+    getAmmattikoulunAmmattitutkinnot,
+    getAmmattikoulunErikoisammattitutkinnot,
+} from './controllers/ammattikoulu';
+import { getOppiaineetTieteenalatTutkinnot } from './controllers/filters';
+import { getLukionVanhatKurssit, getLukionVanhatOppiaineet } from './controllers/vanha-lukio';
 
 const router: Router = Router();
 
@@ -283,7 +284,7 @@ const router: Router = Router();
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/asiasanat/:lang", getAsiasanat);
+router.get('/asiasanat/:lang', getAsiasanat);
 
 /**
  * Returns single keyword from redis database by given id and language.
@@ -295,7 +296,7 @@ router.get("/asiasanat/:lang", getAsiasanat);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/asiasanat/:key/:lang", getAsiasana);
+router.get('/asiasanat/:key/:lang', getAsiasana);
 
 /**
  * Returns all organizations from redis database by given language.
@@ -306,7 +307,7 @@ router.get("/asiasanat/:key/:lang", getAsiasana);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/organisaatiot/:lang", getOrganisaatiot);
+router.get('/organisaatiot/:lang', getOrganisaatiot);
 
 /**
  * Returns single organization from redis database by given id and language.
@@ -318,7 +319,7 @@ router.get("/organisaatiot/:lang", getOrganisaatiot);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/organisaatiot/:key/:lang", getOrganisaatio);
+router.get('/organisaatiot/:key/:lang', getOrganisaatio);
 
 /**
  * Returns all learning resource types from redis database by given language.
@@ -329,7 +330,7 @@ router.get("/organisaatiot/:key/:lang", getOrganisaatio);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/oppimateriaalityypit/:lang", getOppimateriaalityypit);
+router.get('/oppimateriaalityypit/:lang', getOppimateriaalityypit);
 
 /**
  * Returns single learning resource type from redis database by given id and language.
@@ -341,7 +342,7 @@ router.get("/oppimateriaalityypit/:lang", getOppimateriaalityypit);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/oppimateriaalityypit/:key/:lang", getOppimateriaalityyppi);
+router.get('/oppimateriaalityypit/:key/:lang', getOppimateriaalityyppi);
 
 /**
  * Returns all educational levels from redis database by given language.
@@ -352,7 +353,7 @@ router.get("/oppimateriaalityypit/:key/:lang", getOppimateriaalityyppi);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/koulutusasteet/:lang", getKoulutusasteet);
+router.get('/koulutusasteet/:lang', getKoulutusasteet);
 
 /**
  * Returns single educational level from redis database by given id and language.
@@ -364,7 +365,7 @@ router.get("/koulutusasteet/:lang", getKoulutusasteet);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/koulutusasteet/:key/:lang", getKoulutusaste);
+router.get('/koulutusasteet/:key/:lang', getKoulutusaste);
 
 /**
  * Returns all science branches from redis database by given language.
@@ -375,7 +376,7 @@ router.get("/koulutusasteet/:key/:lang", getKoulutusaste);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/tieteenalat/:lang", getTieteenalat);
+router.get('/tieteenalat/:lang', getTieteenalat);
 
 /**
  * Returns all educational roles from redis database by given language.
@@ -386,7 +387,7 @@ router.get("/tieteenalat/:lang", getTieteenalat);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/kohderyhmat/:lang", getKohderyhmat);
+router.get('/kohderyhmat/:lang', getKohderyhmat);
 
 /**
  * Returns single educational role from redis database by given id and language.
@@ -398,7 +399,7 @@ router.get("/kohderyhmat/:lang", getKohderyhmat);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/kohderyhmat/:key/:lang", getKohderyhma);
+router.get('/kohderyhmat/:key/:lang', getKohderyhma);
 
 /**
  * Returns all educational uses from redis database by given language.
@@ -409,7 +410,7 @@ router.get("/kohderyhmat/:key/:lang", getKohderyhma);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/kayttokohteet/:lang", getKayttokohteet);
+router.get('/kayttokohteet/:lang', getKayttokohteet);
 
 /**
  * Returns single educational use from redis database by given id and language.
@@ -421,7 +422,7 @@ router.get("/kayttokohteet/:lang", getKayttokohteet);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/kayttokohteet/:key/:lang", getKayttokohde);
+router.get('/kayttokohteet/:key/:lang', getKayttokohde);
 
 /**
  * Returns all accessibility features from redis database by given language.
@@ -432,7 +433,7 @@ router.get("/kayttokohteet/:key/:lang", getKayttokohde);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/saavutettavuudentukitoiminnot/:lang", getSaavutettavuudenTukitoiminnot);
+router.get('/saavutettavuudentukitoiminnot/:lang', getSaavutettavuudenTukitoiminnot);
 
 /**
  * Returns single accessibility feature from redis database by given id and language.
@@ -444,7 +445,7 @@ router.get("/saavutettavuudentukitoiminnot/:lang", getSaavutettavuudenTukitoimin
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/saavutettavuudentukitoiminnot/:key/:lang", getSaavutettavuudenTukitoiminto);
+router.get('/saavutettavuudentukitoiminnot/:key/:lang', getSaavutettavuudenTukitoiminto);
 
 /**
  * Returns all accessibility hazards from redis database by given language.
@@ -455,7 +456,7 @@ router.get("/saavutettavuudentukitoiminnot/:key/:lang", getSaavutettavuudenTukit
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/saavutettavuudenesteet/:lang", getSaavutettavuudenEsteet);
+router.get('/saavutettavuudenesteet/:lang', getSaavutettavuudenEsteet);
 
 /**
  * Returns single accessibility hazard from redis database by given id and language.
@@ -467,7 +468,7 @@ router.get("/saavutettavuudenesteet/:lang", getSaavutettavuudenEsteet);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/saavutettavuudenesteet/:key/:lang", getSaavutettavuudenEste);
+router.get('/saavutettavuudenesteet/:key/:lang', getSaavutettavuudenEste);
 
 /**
  * Returns all languages from redis database by given language.
@@ -478,7 +479,7 @@ router.get("/saavutettavuudenesteet/:key/:lang", getSaavutettavuudenEste);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/kielet/:lang", getKielet);
+router.get('/kielet/:lang', getKielet);
 
 /**
  * Returns single language from redis database by given id and language.
@@ -490,7 +491,7 @@ router.get("/kielet/:lang", getKielet);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/kielet/:key/:lang", getKieli);
+router.get('/kielet/:key/:lang', getKieli);
 
 /**
  * Returns all educational subjects from redis database by given language.
@@ -501,7 +502,7 @@ router.get("/kielet/:key/:lang", getKieli);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/oppiaineet/:lang", getPerusopetuksenOppiaineet);
+router.get('/oppiaineet/:lang', getPerusopetuksenOppiaineet);
 
 /**
  * Returns all educational subject objectives from redis database by given ids and language.
@@ -513,7 +514,7 @@ router.get("/oppiaineet/:lang", getPerusopetuksenOppiaineet);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/tavoitteet/:ids/:lang", getPerusopetuksenTavoitteet);
+router.get('/tavoitteet/:ids/:lang', getPerusopetuksenTavoitteet);
 
 /**
  * Returns all educational subject contents from redis database by given ids and language.
@@ -525,7 +526,7 @@ router.get("/tavoitteet/:ids/:lang", getPerusopetuksenTavoitteet);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/sisaltoalueet/:ids/:lang", getPerusopetuksenSisaltoalueet);
+router.get('/sisaltoalueet/:ids/:lang', getPerusopetuksenSisaltoalueet);
 
 /**
  * Returns all licenses from redis database by given language.
@@ -536,7 +537,7 @@ router.get("/sisaltoalueet/:ids/:lang", getPerusopetuksenSisaltoalueet);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/lisenssit/:lang", getLisenssit);
+router.get('/lisenssit/:lang', getLisenssit);
 
 /**
  * Returns single license from redis database by given id and language.
@@ -548,7 +549,7 @@ router.get("/lisenssit/:lang", getLisenssit);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/lisenssit/:key/:lang", getLisenssi);
+router.get('/lisenssit/:key/:lang', getLisenssi);
 
 /**
  * Returns all upper secondary school subjects from redis database by given language.
@@ -559,7 +560,7 @@ router.get("/lisenssit/:key/:lang", getLisenssi);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/lukionkurssit/:lang", getLukionkurssit);
+router.get('/lukionkurssit/:lang', getLukionkurssit);
 
 /**
  * Returns single upper secondary school subject from redis database by given id and language.
@@ -571,7 +572,7 @@ router.get("/lukionkurssit/:lang", getLukionkurssit);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/lukionkurssit/:key/:lang", getLukionkurssi);
+router.get('/lukionkurssit/:key/:lang', getLukionkurssi);
 
 /**
  * Returns all upper secondary school old subjects from redis database by given language.
@@ -582,7 +583,7 @@ router.get("/lukionkurssit/:key/:lang", getLukionkurssi);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/lukio-vanha-oppiaineet/:lang", getLukionVanhatOppiaineet);
+router.get('/lukio-vanha-oppiaineet/:lang', getLukionVanhatOppiaineet);
 
 /**
  * Returns all upper secondary school old courses from redis database by given ids and language.
@@ -594,7 +595,7 @@ router.get("/lukio-vanha-oppiaineet/:lang", getLukionVanhatOppiaineet);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/lukio-vanha-kurssit/:ids/:lang", getLukionVanhatKurssit);
+router.get('/lukio-vanha-kurssit/:ids/:lang', getLukionVanhatKurssit);
 
 /**
  * Returns all upper secondary school new subjects from redis database by given language.
@@ -605,7 +606,7 @@ router.get("/lukio-vanha-kurssit/:ids/:lang", getLukionVanhatKurssit);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/lukio-oppiaineet/:lang", getLukionOppiaineet);
+router.get('/lukio-oppiaineet/:lang', getLukionOppiaineet);
 
 /**
  * Returns all upper secondary school new modules from redis database by given ids and language.
@@ -617,7 +618,7 @@ router.get("/lukio-oppiaineet/:lang", getLukionOppiaineet);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/lukio-moduulit/:ids/:lang", getLukionModuulit);
+router.get('/lukio-moduulit/:ids/:lang', getLukionModuulit);
 
 /**
  * Returns all upper secondary school new module objectives from redis database by given ids and language.
@@ -629,7 +630,7 @@ router.get("/lukio-moduulit/:ids/:lang", getLukionModuulit);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/lukio-tavoitteet/:ids/:lang", getLukionTavoitteet);
+router.get('/lukio-tavoitteet/:ids/:lang', getLukionTavoitteet);
 
 /**
  * Returns all upper secondary school new module contents from redis database by given ids and language.
@@ -641,7 +642,7 @@ router.get("/lukio-tavoitteet/:ids/:lang", getLukionTavoitteet);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/lukio-sisallot/:ids/:lang", getLukionSisallot);
+router.get('/lukio-sisallot/:ids/:lang', getLukionSisallot);
 
 /**
  * Returns all vocational qualifications from redis database by given language.
@@ -652,7 +653,7 @@ router.get("/lukio-sisallot/:ids/:lang", getLukionSisallot);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/ammattikoulu-tutkinnot/:lang", getAmmattikoulunPerustutkinnot);
+router.get('/ammattikoulu-tutkinnot/:lang', getAmmattikoulunPerustutkinnot);
 
 /**
  * Returns all vocational qualification units from redis database by given ids and language
@@ -664,7 +665,7 @@ router.get("/ammattikoulu-tutkinnot/:lang", getAmmattikoulunPerustutkinnot);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/ammattikoulu-tutkinnon-osat/:ids/:lang", getAmmattikoulunTutkinnonOsat);
+router.get('/ammattikoulu-tutkinnon-osat/:ids/:lang', getAmmattikoulunTutkinnonOsat);
 
 /**
  * Returns all vocational qualification unit requirements from redis database by given ids and language.
@@ -676,7 +677,7 @@ router.get("/ammattikoulu-tutkinnon-osat/:ids/:lang", getAmmattikoulunTutkinnonO
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/ammattikoulu-vaatimukset/:ids/:lang", getAmmattikoulunVaatimukset);
+router.get('/ammattikoulu-vaatimukset/:ids/:lang', getAmmattikoulunVaatimukset);
 
 /**
  * Returns all further vocational qualifications from redis database by given language.
@@ -687,7 +688,7 @@ router.get("/ammattikoulu-vaatimukset/:ids/:lang", getAmmattikoulunVaatimukset);
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/ammattikoulu-ammattitutkinnot/:lang", getAmmattikoulunAmmattitutkinnot);
+router.get('/ammattikoulu-ammattitutkinnot/:lang', getAmmattikoulunAmmattitutkinnot);
 
 /**
  * Returns all specialist vocational qualifications from redis database by given language.
@@ -698,7 +699,7 @@ router.get("/ammattikoulu-ammattitutkinnot/:lang", getAmmattikoulunAmmattitutkin
  * @returns {Error.model} 404 - Not found
  * @returns {Error.model} 500 - Something went wrong
  */
-router.get("/ammattikoulu-erikoisammattitutkinnot/:lang", getAmmattikoulunErikoisammattitutkinnot);
+router.get('/ammattikoulu-erikoisammattitutkinnot/:lang', getAmmattikoulunErikoisammattitutkinnot);
 
 /**
  * Returns all oppiaineet-tieteenalat-tutkinnot filters from redis database by given language.
@@ -706,6 +707,6 @@ router.get("/ammattikoulu-erikoisammattitutkinnot/:lang", getAmmattikoulunErikoi
  * @route GET /filters-oppiaineet-tieteenalat-tutkinnot/{lang}
  * @param {string} lang.path.required - ISO 639-1 language code
  */
-router.get("/filters-oppiaineet-tieteenalat-tutkinnot/:lang", getOppiaineetTieteenalatTutkinnot);
+router.get('/filters-oppiaineet-tieteenalat-tutkinnot/:lang', getOppiaineetTieteenalatTutkinnot);
 
 export default router;

@@ -21,7 +21,7 @@ before_script:
 build_demo:
   stage: build
   script:
-    - echo "DEMO build"
+    - echo 'DEMO build'
     - docker-compose -f docker-compose.prod.yml down
     - docker-compose -f docker-compose.prod.yml build
   only:
@@ -32,7 +32,7 @@ build_demo:
 deploy_demo:
   stage: deploy
   script:
-    - echo "DEMO deploy"
+    - echo 'DEMO deploy'
     - docker-compose -f docker-compose.prod.yml up -d
   only:
     - dev
@@ -42,7 +42,7 @@ deploy_demo:
 cleanup_demo:
   stage: cleanup
   script:
-    - echo "DEMO system clean up"
+    - echo 'DEMO system clean up'
     - docker system prune -a -f
   only:
     - dev
@@ -53,7 +53,7 @@ cleanup_demo:
 build_prod:
   stage: build
   script:
-    - echo "DEMO build"
+    - echo 'DEMO build'
     - docker-compose -f docker-compose.prod.yml down
     - docker-compose -f docker-compose.prod.yml build
   only:
@@ -64,7 +64,7 @@ build_prod:
 deploy_prod:
   stage: deploy
   script:
-    - echo "DEMO deploy"
+    - echo 'DEMO deploy'
     - docker-compose -f docker-compose.prod.yml up -d
   only:
     - main
@@ -74,7 +74,7 @@ deploy_prod:
 cleanup_prod:
   stage: cleanup
   script:
-    - echo "DEMO system clean up"
+    - echo 'DEMO system clean up'
     - docker system prune -a -f
   only:
     - main
